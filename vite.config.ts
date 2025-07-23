@@ -14,7 +14,7 @@ export default defineConfig({
       },
       includeAssets: ['favicon.ico', 'apple-touch-icon.png'],
       manifest: {
-        id: '/dashboard/', // 👈 importante para PWA en subruta
+        id: '/Dashboard/', // 👈 importante para PWA en subruta
         name: 'Dashboard del Clima - Proyecto 04',
         short_name: 'Dashboard del Clima',
         description: 'Proyecto 04 - dashboard del clima desarrollado con React y MUI',

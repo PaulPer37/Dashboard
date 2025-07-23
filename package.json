@@ -5,13 +5,15 @@
   "type": "module",
   "homepage": "https://jcarrome.github.io/dashboard",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc -b && vite build",
-    "lint": "eslint .",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist",
-    "preview": "vite preview"
-  },
+  "dev": "vite",
+  "build-ts": "tsc -b",
+  "build-only": "vite build",
+  "build": "npm run build-ts && npm run build-only",
+  "lint": "eslint .",
+  "predeploy": "npm run build",
+  "deploy": "gh-pages -d dist",
+  "preview": "vite preview"
+},
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
