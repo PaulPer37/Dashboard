@@ -4,20 +4,26 @@ import { VitePWA } from 'vite-plugin-pwa'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/Dashboard/', // 👈 importante para GitHub Pages
+  // Usa rutas relativas para producción y desarrollo
+  base: './',
   plugins: [
     react(),
     VitePWA({
       registerType: 'autoUpdate',
       devOptions: {
-        enabled: true
+        enabled: true,
       },
-      includeAssets: ['favicon.ico', 'apple-touch-icon.png'],
+      includeAssets: [
+        'favicon-32x32.png',
+        'favicon-16x16.png',
+        'apple-touch-icon.png',
+      ],
       manifest: {
-        id: '/Dashboard/', // 👈 importante para PWA en subruta
+        // id relativo para PWAs en subruta
+        id: './',
         name: 'Dashboard del Clima - Proyecto 04',
-        short_name: 'Dashboard del Clima',
-        description: 'Proyecto 04 - dashboard del clima desarrollado con React y MUI',
+        short_name: 'Dashboard Clima',
+        description: 'Proyecto 04 - dashboard del clima con React y MUI',
         theme_color: '#D3D1D1',
         icons: [
           {
@@ -34,15 +40,15 @@ export default defineConfig({
             src: 'pwa-maskable-192x192.png',
             sizes: '192x192',
             type: 'image/png',
-            purpose: 'maskable'
+            purpose: 'maskable',
           },
           {
             src: 'pwa-maskable-512x512.png',
             sizes: '512x512',
             type: 'image/png',
-            purpose: 'maskable'
+            purpose: 'maskable',
           },
-        ]
+        ],
       },
       workbox: {
         runtimeCaching: [
@@ -58,11 +64,11 @@ export default defineConfig({
               },
               cacheableResponse: {
                 statuses: [0, 200],
-              }
-            }
-          }
-        ]
-      }
-    })
-  ]
+              },
+            },
+          },
+        ],
+      },
+    }),
+  ],
 })
