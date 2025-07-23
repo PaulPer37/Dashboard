@@ -2,10 +2,10 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import { VitePWA } from 'vite-plugin-pwa'
 
-// https://vite.dev/config/
 export default defineConfig({
-  // Usa rutas relativas para producción y desarrollo
-  base: './',
+  // 👇 CAMBIA esto:
+  base: '/Dashboard/',
+
   plugins: [
     react(),
     VitePWA({
@@ -19,7 +19,6 @@ export default defineConfig({
         'apple-touch-icon.png',
       ],
       manifest: {
-        // id relativo para PWAs en subruta
         id: './',
         name: 'Dashboard del Clima - Proyecto 04',
         short_name: 'Dashboard Clima',
@@ -53,14 +52,13 @@ export default defineConfig({
       workbox: {
         runtimeCaching: [
           {
-            // Caché para la API de clima
             urlPattern: /^https:\/\/api\.open-meteo\.com\/.*$/,
             handler: 'NetworkFirst',
             options: {
               cacheName: 'open-meteo-cache',
               expiration: {
                 maxEntries: 10,
-                maxAgeSeconds: 60 * 60 * 24, // 1 día
+                maxAgeSeconds: 60 * 60 * 24,
               },
               cacheableResponse: {
                 statuses: [0, 200],
